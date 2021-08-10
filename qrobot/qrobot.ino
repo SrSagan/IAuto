@@ -33,9 +33,6 @@ void setup() {
 }
 
  void Mover(int m1=0, int m2=0){
-   if((m1 != 0) || (m2 != 0)){
-   if(m1 == 777) m1=0;
-   if(m2 == 777) m2=0;
    M1.SetMotorPwm(m1);
    M2.SetMotorPwm(m2);
    }
