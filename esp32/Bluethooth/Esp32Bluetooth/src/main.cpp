@@ -13,8 +13,8 @@
 #define INT4_CHANNEL 3
 #define RESOLUTION 10
 #define FREQUENCY 30000
-#define VAl 1023
-#define VAl2 0
+#define VAL 1023
+#define VAL2 0
 
 BluetoothSerial SerialBT;
 //int rele = 13;
@@ -40,37 +40,37 @@ void driverMotor(){
     comando2 = leerBluetooth();
     datos = comando2.toInt();
     if(datos == 0){
-      ledcWrite(INT1_CHANNEL, VAl);
-      digitalWrite(INT2, 0);
-      digitalWrite(INT3, 0);
-      digitalWrite(INT4, 0);
+      ledcWrite(INT1_CHANNEL, VAL);
+      ledcWrite(INT2_CHANNEL, VAL2);
+      ledcWrite(INT3_CHANNEL, VAL2);
+      ledcWrite(INT4_CHANNEL, VAL2);
       Serial.println(comando2);
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
     else if (datos == 1){
-      ledcWrite(INT3_CHANNEL, VAl);
-      digitalWrite(INT2, 0);
-      digitalWrite(INT1, 0);
-      digitalWrite(INT4, 0);
+      ledcWrite(INT3_CHANNEL, VAL);
+      ledcWrite(INT2_CHANNEL, VAL2);
+      ledcWrite(INT1_CHANNEL, VAL2);
+      ledcWrite(INT4_CHANNEL, VAL2);
       Serial.println(comando2);
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
     else if (datos == 2){
-      ledcWrite(INT3_CHANNEL, VAl);
-      ledcWrite(INT1_CHANNEL, VAl);
-      digitalWrite(INT2, 0);
-      digitalWrite(INT4, 0);
+      ledcWrite(INT3_CHANNEL, VAL);
+      ledcWrite(INT1_CHANNEL, VAL);
+      ledcWrite(INT2_CHANNEL, VAL2);
+      ledcWrite(INT4_CHANNEL, VAL2);
       Serial.println(comando2);
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
     else if (datos == 3){
-      ledcWrite(INT2_CHANNEL, VAl);
-      ledcWrite(INT4_CHANNEL, VAl);
-      digitalWrite(INT1, 0);
-      digitalWrite(INT3, 0);
+      ledcWrite(INT2_CHANNEL, VAL);
+      ledcWrite(INT4_CHANNEL, VAL);
+      ledcWrite(INT1_CHANNEL, VAL2);
+      ledcWrite(INT3_CHANNEL , VAL2);
       Serial.println(comando2);
       Serial.println("en el 11");
       Serial.println(digitalRead(INT1), digitalRead(INT2));
