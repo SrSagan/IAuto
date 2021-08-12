@@ -19,31 +19,27 @@
 BluetoothSerial SerialBT;
 //int rele = 13;
 String comando2 = "";
-boolean codigo_true = false;
+int datos;
 
-void bluetoothTerminal(){
+String leerBluetooth(){
+  String data;
+  String comando;
   if(SerialBT.available()){
-    char caracter = SerialBT.read();
-    String comando;
-    comando = (String)caracter;
-
-    if(comando != "\n"){
-      comando2 += comando;
-//      Serial.println(comando2);
+    while(1){
+      char caracter = SerialBT.read();
+      comando = (String)caracter;
+      data += comando;
+      if(comando == "\n")
+      break;
     }
-    else if(comando == "\n"){
-      //Serial.println(comando2);
-      codigo_true = true;
-      Serial.println("en el else if");
-//      comando = "";
-//      comando2 = "";
-    }
-
   }
+  return data;
 }
+
 void driverMotor(){
-  if (codigo_true){
-    if(comando2 == "00"){
+    comando2 = leerBluetooth();
+    datos = comando2.toInt();
+    if(datos == 0){
       ledcWrite(INT1_CHANNEL, VAl);
       digitalWrite(INT2, 0);
       digitalWrite(INT3, 0);
@@ -52,7 +48,7 @@ void driverMotor(){
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
-    else if (comando2 == "01"){
+    else if (datos == 1){
       ledcWrite(INT3_CHANNEL, VAl);
       digitalWrite(INT2, 0);
       digitalWrite(INT1, 0);
@@ -61,7 +57,7 @@ void driverMotor(){
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
-    else if (comando2 == "10"){
+    else if (datos == 2){
       ledcWrite(INT3_CHANNEL, VAl);
       ledcWrite(INT1_CHANNEL, VAl);
       digitalWrite(INT2, 0);
@@ -70,23 +66,18 @@ void driverMotor(){
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
-    else if (comando2 == "11"){
+    else if (datos == 3){
       ledcWrite(INT2_CHANNEL, VAl);
       ledcWrite(INT4_CHANNEL, VAl);
       digitalWrite(INT1, 0);
       digitalWrite(INT3, 0);
       Serial.println(comando2);
+      Serial.println("en el 11");
       Serial.println(digitalRead(INT1), digitalRead(INT2));
       Serial.println(digitalRead(INT3), digitalRead(INT4));
     }
-    Serial.println("hoal" + comando2);
-    comando2 = "";
-    codigo_true = false;
-    Serial.println("en la funcion");
-    Serial.println("hoal" + comando2);
   }
 
-}
 void setup() {
   Serial.begin(115200);
   SerialBT.begin("ESP32");// Nombre del dispositivo Bluetooth
@@ -125,6 +116,7 @@ void loop() {
    }
   delay(20);
 */
-bluetoothTerminal();
+if(SerialBT.available())
 driverMotor();
+
 }
