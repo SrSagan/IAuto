@@ -5,7 +5,3 @@ IAuto is a little car that's controlled by an artificial intelligence, the brain
 # Objectives
 
 This project is merely for education, not only learn how to code advanced algorithms but also to use as an example for other poeple who might be trying to learn something similar. 
-
-el de abajo e puto
-
-maxi
