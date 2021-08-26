@@ -140,11 +140,9 @@ Text Label 2750 3800 2    50   ~ 0
 MISO
 Text Label 2750 3700 2    50   ~ 0
 CLK
-Text Label 4750 4100 0    50   ~ 0
-CS
 Text GLabel 4500 3300 2    50   Input ~ 0
 AIN1
-Text GLabel 4500 3500 2    50   Input ~ 0
+Text GLabel 3000 3300 0    50   Input ~ 0
 AIN2
 Text GLabel 4500 3400 2    50   Input ~ 0
 BIN1
@@ -157,7 +155,7 @@ Wire Wire Line
 Wire Wire Line
 	4500 3400 4400 3400
 Wire Wire Line
-	4500 3500 4400 3500
+	4750 3500 4400 3500
 Text GLabel 3000 2900 0    50   Input ~ 0
 AO1
 Text GLabel 3000 2800 0    50   Input ~ 0
@@ -183,15 +181,15 @@ Wire Wire Line
 Wire Wire Line
 	3100 3200 2650 3200
 Wire Wire Line
-	3100 3300 2650 3300
+	3100 3300 3000 3300
 Wire Wire Line
 	3100 3400 2650 3400
 Wire Wire Line
 	3100 3500 2650 3500
-Text Label 2650 3200 2    50   ~ 0
-GPIO32
-Text Label 2650 3300 2    50   ~ 0
-GPIO33
+Text Label 4750 4100 0    50   ~ 0
+GPIO15
+Text Label 4750 3500 0    50   ~ 0
+GPIO5
 Text Label 2650 3400 2    50   ~ 0
 GPIO25
 Text Label 2650 3500 2    50   ~ 0
@@ -200,7 +198,7 @@ Text Label 4500 2700 0    50   ~ 0
 GPIO23
 Wire Wire Line
 	4500 2700 4400 2700
-Text GLabel 7350 3450 2    50   Input ~ 0
+Text GLabel 7100 3450 2    50   Input ~ 0
 +5VF
 $Comp
 L MacroLib:ESP32_NODEMCU U1
@@ -300,7 +298,7 @@ GPIO34
 Text Label 7100 3250 0    50   ~ 0
 GPIO32
 Text Label 7100 3150 0    50   ~ 0
-GPIO33
+GPIO5
 Text Label 7100 3350 0    50   ~ 0
 GPIO26
 $Comp
@@ -342,7 +340,7 @@ Wire Wire Line
 Wire Wire Line
 	7100 3550 7000 3550
 Wire Wire Line
-	7350 3450 7000 3450
+	7100 3450 7000 3450
 Text Label 2300 2600 2    50   ~ 0
 F+3.3V
 $Comp
@@ -510,4 +508,6 @@ Wire Wire Line
 Connection ~ 4150 5700
 Wire Wire Line
 	4150 5700 4150 5950
+Text Label 2650 3200 2    50   ~ 0
+CS
 $EndSCHEMATC
