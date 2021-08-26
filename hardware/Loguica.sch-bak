@@ -174,27 +174,27 @@ Wire Wire Line
 	4500 4000 4400 4000
 Wire Wire Line
 	4500 3800 4400 3800
-Text Label 2800 3000 2    50   ~ 0
+Text Label 2650 3100 2    50   ~ 0
 GPIO34
 Wire Wire Line
-	2800 3000 3100 3000
+	3000 3000 3100 3000
 Wire Wire Line
-	3100 3100 2550 3100
+	3100 3100 2650 3100
 Wire Wire Line
-	3100 3200 2850 3200
+	3100 3200 2650 3200
 Wire Wire Line
-	3100 3300 2850 3300
+	3100 3300 2650 3300
 Wire Wire Line
-	3100 3400 2850 3400
+	3100 3400 2650 3400
 Wire Wire Line
-	3100 3500 2850 3500
-Text Label 2850 3200 2    50   ~ 0
+	3100 3500 2650 3500
+Text Label 2650 3200 2    50   ~ 0
 GPIO32
-Text Label 2850 3300 2    50   ~ 0
+Text Label 2650 3300 2    50   ~ 0
 GPIO33
-Text Label 2850 3400 2    50   ~ 0
+Text Label 2650 3400 2    50   ~ 0
 GPIO25
-Text Label 2850 3500 2    50   ~ 0
+Text Label 2650 3500 2    50   ~ 0
 GPIO26
 Text Label 4500 2700 0    50   ~ 0
 GPIO23
@@ -377,7 +377,7 @@ Wire Wire Line
 Connection ~ 7100 3650
 Wire Wire Line
 	7100 3650 7100 3550
-Text GLabel 2550 3100 0    50   Input ~ 0
+Text GLabel 3000 3000 0    50   Input ~ 0
 GPIO35
 Wire Notes Line
 	8050 1800 8050 5000
