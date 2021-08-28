@@ -12,3 +12,5 @@
 #define RESOLUTION 10
 #define FREQUENCY 30000
 
+//Crear funcion para controlar los encoder
+//yo me ocupo del rpi maxi ;) vo haceme la gauchada de hacerme esto dale media pila salu2"
