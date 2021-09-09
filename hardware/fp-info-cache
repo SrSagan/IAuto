@@ -1,4 +1,4 @@
-367327835810213
+370590094608213
 EESTN5
 ARDUINO_MINI_PRO_EESTN5
 
@@ -1582,12 +1582,26 @@ OLED oled
 4
 4
 MacroLib
+Pin_Header_2X6
+
+
+0
+12
+6
+MacroLib
 Pin_strip_02x05
 
 
 0
 10
 10
+MacroLib
+Pin_strip_2x6
+
+
+0
+12
+12
 MacroLib
 QFN50P500X500X100-29N-D
 QFN-28-3

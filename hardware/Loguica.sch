@@ -17,10 +17,10 @@ Text Label 3000 2700 2    50   ~ 0
 EN
 Wire Wire Line
 	3000 2700 3100 2700
-Text Label 4750 3900 0    50   ~ 0
+Text Label 4500 3900 0    50   ~ 0
 GPIO0
 Wire Wire Line
-	4750 3900 4400 3900
+	4500 3900 4400 3900
 Text Label 4500 4000 0    50   ~ 0
 RXD
 Text Label 4500 3800 0    50   ~ 0
@@ -140,34 +140,28 @@ Text Label 2750 3800 2    50   ~ 0
 MISO
 Text Label 3000 4000 2    50   ~ 0
 CLK
-Text GLabel 4500 3300 2    50   Input ~ 0
+Text GLabel 4500 2800 2    50   Input ~ 0
 AIN1
-Text GLabel 4500 3400 2    50   Input ~ 0
+Text GLabel 4500 3100 2    50   Input ~ 0
 AIN2
 Text GLabel 3000 3300 0    50   Input ~ 0
 BIN1
 Text GLabel 3000 3600 0    50   Input ~ 0
 BIN2
 Wire Wire Line
-	4400 3300 4500 3300
+	4400 3100 4500 3100
 Wire Wire Line
 	3000 3600 3100 3600
 Wire Wire Line
-	4500 3400 4400 3400
+	4500 3300 4400 3300
 Wire Wire Line
-	4750 3500 4400 3500
-Text GLabel 3000 2900 0    50   Input ~ 0
-AO1
+	4500 3500 4400 3500
 Text GLabel 3000 2800 0    50   Input ~ 0
-BO1
-Text GLabel 4500 2800 2    50   Input ~ 0
+AO1
+Text GLabel 4500 2700 2    50   Input ~ 0
 AO2
-Text GLabel 4500 3100 2    50   Input ~ 0
-BO2
 Wire Wire Line
 	3000 2800 3100 2800
-Wire Wire Line
-	3000 2900 3100 2900
 Wire Wire Line
 	4500 4000 4400 4000
 Wire Wire Line
@@ -175,7 +169,7 @@ Wire Wire Line
 Text Label 2650 3100 2    50   ~ 0
 GPIO35
 Wire Wire Line
-	3000 3000 3100 3000
+	2650 3000 3100 3000
 Wire Wire Line
 	3100 3100 2650 3100
 Wire Wire Line
@@ -188,13 +182,13 @@ Wire Wire Line
 	3100 3500 2650 3500
 Text Label 2650 3200 2    50   ~ 0
 GPIO32
-Text Label 4750 3500 0    50   ~ 0
+Text Label 4500 3500 0    50   ~ 0
 GPIO5
 Text Label 2650 3400 2    50   ~ 0
 GPIO25
 Text Label 2650 3500 2    50   ~ 0
 GPIO26
-Text GLabel 7100 3550 2    50   Input ~ 0
+Text GLabel 7100 3650 2    50   Input ~ 0
 +5VF
 $Comp
 L MacroLib:ESP32_NODEMCU U1
@@ -207,12 +201,10 @@ F 3 "" H 3750 3400 50  0001 C CNN
 	1    3750 2800
 	1    0    0    -1  
 $EndComp
-Text Label 4750 3600 0    50   ~ 0
+Text Label 4500 3600 0    50   ~ 0
 SDA
-Text Label 4750 3700 0    50   ~ 0
+Text Label 4500 3700 0    50   ~ 0
 SCL
-Wire Wire Line
-	4500 3100 4400 3100
 Wire Wire Line
 	4500 2800 4400 2800
 Wire Wire Line
@@ -222,11 +214,11 @@ Wire Wire Line
 Wire Wire Line
 	2750 3700 3100 3700
 Wire Wire Line
-	4750 4100 4400 4100
+	4500 4100 4400 4100
 Wire Wire Line
-	4400 3700 4750 3700
+	4400 3700 4500 3700
 Wire Wire Line
-	4400 3600 4750 3600
+	4400 3600 4500 3600
 Text Label 9350 2900 0    50   ~ 0
 RXD
 Text Label 9350 2800 0    50   ~ 0
@@ -297,49 +289,25 @@ Text Label 7100 3250 0    50   ~ 0
 GPIO5
 Text Label 6400 3250 2    50   ~ 0
 GPIO26
-$Comp
-L EESTN5:CONN_02X05 P2
-U 1 1 60E67E8A
-P 6750 3350
-F 0 "P2" H 6750 3765 50  0000 C CNN
-F 1 "CONN_02X05" H 6750 3674 50  0000 C CNN
-F 2 "MacroLib:Pin_strip_02x05" H 6750 2150 50  0001 C CNN
-F 3 "" H 6750 2150 50  0000 C CNN
-	1    6750 3350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6400 3150 6500 3150
 Wire Wire Line
 	6400 3250 6500 3250
 Wire Wire Line
-	7100 3550 7000 3550
+	7100 3650 7000 3650
 Wire Wire Line
 	7100 3150 7000 3150
 Wire Wire Line
 	7100 3250 7000 3250
 Wire Wire Line
 	7100 3350 7000 3350
-$Comp
-L power:GND #PWR06
-U 1 1 60E92CD9
-P 6400 3750
-F 0 "#PWR06" H 6400 3500 50  0001 C CNN
-F 1 "GND" H 6405 3577 50  0000 C CNN
-F 2 "" H 6400 3750 50  0001 C CNN
-F 3 "" H 6400 3750 50  0001 C CNN
-	1    6400 3750
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
-	6400 3550 6500 3550
-Wire Wire Line
-	7100 3450 7000 3450
+	7100 3550 7000 3550
 Text Label 2150 2600 2    50   ~ 0
 F+3.3V
 Wire Wire Line
 	2150 2600 2250 2600
-Text Label 7100 3450 0    50   ~ 0
+Text Label 7100 3550 0    50   ~ 0
 F+3.3V
 Wire Wire Line
 	6400 3350 6500 3350
@@ -347,8 +315,8 @@ Text Label 7100 3150 0    50   ~ 0
 GPIO0
 Text Label 6400 3150 2    50   ~ 0
 GPIO25
-Text GLabel 3000 3000 0    50   Input ~ 0
-GPIO34
+Text GLabel 3000 2900 0    50   Input ~ 0
+GPIO39
 Wire Notes Line
 	8050 1800 8050 5000
 Wire Notes Line
@@ -480,7 +448,7 @@ Wire Wire Line
 Connection ~ 3250 5100
 Wire Wire Line
 	3250 5100 3250 5350
-Text Label 4750 4100 0    50   ~ 0
+Text Label 4500 4100 0    50   ~ 0
 CS
 $Comp
 L MacroLib:FUSE F1
@@ -513,12 +481,52 @@ Wire Wire Line
 	3000 2600 3100 2600
 Wire Wire Line
 	4500 2700 4400 2700
-Text Label 4500 2700 0    50   ~ 0
-GPIO23
-Wire Wire Line
-	6400 3550 6400 3750
+Text Label 4500 3300 0    50   ~ 0
+GPIO19
 Wire Wire Line
 	6400 3450 6500 3450
+Text Label 4500 3400 0    50   ~ 0
+GPIO18
+Wire Wire Line
+	4500 3400 4400 3400
+Wire Wire Line
+	3000 2900 3100 2900
+Text Label 2650 3000 2    50   ~ 0
+GPIO34
+$Comp
+L MacroLib:CONN_02x6 P2
+U 1 1 61691005
+P 6750 3400
+F 0 "P2" H 6750 3875 50  0000 C CNN
+F 1 "CONN_02x6" H 6750 3784 50  0000 C CNN
+F 2 "MacroLib:Pin_strip_2x6" H 6750 3800 50  0001 C CNN
+F 3 "" H 6750 3800 50  0001 C CNN
+	1    6750 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 3650 6400 3850
+Wire Wire Line
+	6400 3650 6500 3650
+$Comp
+L power:GND #PWR06
+U 1 1 60E92CD9
+P 6400 3850
+F 0 "#PWR06" H 6400 3600 50  0001 C CNN
+F 1 "GND" H 6405 3677 50  0000 C CNN
+F 2 "" H 6400 3850 50  0001 C CNN
+F 3 "" H 6400 3850 50  0001 C CNN
+	1    6400 3850
+	-1   0    0    -1  
+$EndComp
+Text Label 6400 3550 2    50   ~ 0
+GPIO34
+Wire Wire Line
+	6400 3550 6500 3550
 Text Label 7100 3350 0    50   ~ 0
-GPIO23
+GPIO18
+Text Label 7100 3450 0    50   ~ 0
+GPIO19
+Wire Wire Line
+	7100 3450 7000 3450
 $EndSCHEMATC
