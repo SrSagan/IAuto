@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name IAuto-rescue)(type Legacy)(uri ${KIPRJMOD}/IAuto-rescue.lib)(options "")(descr ""))
+  (lib (name IAuto)(type Legacy)(uri ${KIPRJMOD}/IAuto.lib)(options "")(descr ""))
 )

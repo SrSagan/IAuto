@@ -1,4 +1,4 @@
-370590094608213
+375485037223695
 EESTN5
 ARDUINO_MINI_PRO_EESTN5
 
@@ -1399,6 +1399,27 @@ TO220
 0
 3
 3
+IAuto
+C_1206
+SMT capacitor, 1206
+
+0
+2
+2
+IAuto
+DO-214AB
+
+Diode, Diodo, diodo, 
+0
+2
+2
+IAuto
+NodeMCU-ESP32
+
+NodeMCU-ESP32, ESP32, NodeMCU
+0
+57
+38
 MacroLib
 1088AS
 8X8 Led Matrix

@@ -186,7 +186,7 @@ Wire Wire Line
 	8650 4700 8750 4700
 Wire Wire Line
 	8650 4600 8750 4600
-Text Label 10300 1250 2    50   ~ 0
+Text Label 10300 2150 2    50   ~ 0
 AOUT2
 Wire Wire Line
 	9000 2150 9100 2150
@@ -483,7 +483,7 @@ Text Label 7300 3000 0    50   ~ 0
 A2
 Text Label 10300 2550 2    50   ~ 0
 A2
-Text Label 10300 2150 2    50   ~ 0
+Text Label 10300 1250 2    50   ~ 0
 AOUT1
 Wire Wire Line
 	9000 2050 9100 2050
