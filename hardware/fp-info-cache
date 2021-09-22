@@ -1,4 +1,4 @@
-367309913007213
+383643852511695
 EESTN5
 ARDUINO_MINI_PRO_EESTN5
 
@@ -1399,6 +1399,41 @@ TO220
 0
 3
 3
+IAuto
+C_1206
+SMT capacitor, 1206
+
+0
+2
+2
+IAuto
+Conector_6
+
+
+0
+6
+6
+IAuto
+Conector_jst_6_pins_2mm
+
+Conector, conector, pin, strip
+0
+6
+6
+IAuto
+DO-214AB
+
+Diode, Diodo, diodo, 
+0
+2
+2
+IAuto
+NodeMCU-ESP32
+
+NodeMCU-ESP32, ESP32, NodeMCU
+0
+57
+38
 MacroLib
 1088AS
 8X8 Led Matrix
@@ -1572,7 +1607,7 @@ NodeMCU-ESP32
 
 NodeMCU-ESP32, ESP32, NodeMCU
 0
-38
+57
 38
 MacroLib
 OLED_TFT_64x128
@@ -1582,12 +1617,26 @@ OLED oled
 4
 4
 MacroLib
+Pin_Header_2X6
+
+
+0
+12
+6
+MacroLib
 Pin_strip_02x05
 
 
 0
 10
 10
+MacroLib
+Pin_strip_2x6
+
+
+0
+12
+12
 MacroLib
 QFN50P500X500X100-29N-D
 QFN-28-3
@@ -1651,6 +1700,27 @@ ST7920
 0
 20
 20
+MacroLib
+TO-252-5_TabPin3
+TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
+DPAK TO-252 DPAK-5 TO-252-5
+0
+10
+5
+MacroLib
+TO-263-5_TabPin6
+TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
+D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
+0
+10
+6
+MacroLib
+TO263
+
+
+0
+9
+1
 MacroLib
 TSOP17
 
