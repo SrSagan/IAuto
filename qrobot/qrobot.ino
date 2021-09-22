@@ -36,7 +36,7 @@ void setup() {
    M1.SetMotorPwm(m1);
    M2.SetMotorPwm(m2);
    }
-  }
+  
 
 void loop() {
   if(Serial.available() > 0){
