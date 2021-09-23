@@ -3,7 +3,7 @@ import time
 
 DEBUG = 0
 
-capture = cv2.VideoCapture("stock.webm")
+capture = cv2.VideoCapture("./assets/stock.webm")
 
 capture.set(3, 640)  # 1024 640 1280 800 384
 capture.set(4, 480)  # 600 480 960 600 288
