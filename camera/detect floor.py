@@ -17,7 +17,7 @@ def Pendiente(xy1, xy2):
     x2 = xy2[0]
     y2 = xy2[1]
 
-    out = ((y2-y1) - (x2-x1))
+    out = (((y2-y1)+1) / ((x2-x1)+1))*100
     return out
 
 
@@ -78,17 +78,21 @@ def Reconocimiento():
                           (EdgeArray[x-1][1] - EdgeArray[x][1]))
 
                 # draws a line between the "initial point/end of last line" to the point found
-                cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 5)
+                pendiente = Pendiente(inPoint, EdgeArray[x-1])
+                cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 2)
                 # we need to calculate the slope (pendiente) of the line
                 # we'll (y2-y1)/(x2-x1)
-                pendiente = Pendiente(inPoint, EdgeArray[x-1])
-                cv2.putText(img, str(pendiente), inPoint,
-                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
                 inPoint = EdgeArray[x]  # changes initial point
             # if it reached the end of the image it draws from last point to the end, since it didn't find anything else
             if(x == len(EdgeArrayHeight)-1):
-                cv2.line(img, inPoint, EdgeArray[x], (255, 0, 0), 5)
+                cv2.line(img, inPoint, EdgeArray[x], (255, 0, 0), 2)
+
+                pendiente = Pendiente(inPoint, EdgeArray[x-1])
+                cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
         if(DEBUG == 1):
             cv2.line(img, (x*StepSize, imageheight),
