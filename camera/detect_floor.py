@@ -41,7 +41,7 @@ def Reconocimiento():
     imagewidth = imgEdge.shape[1] - 1
     imageheight = imgEdge.shape[0] - 1
     EdgeArrayHeight = []
-
+    val_ant=(0,0)
     for j in range(0, imagewidth, StepSize):  # for the width of image array
         # step through every pixel in height of array from bottom to top
         for i in range(imageheight-5, 0, -1):
@@ -51,17 +51,15 @@ def Reconocimiento():
                 EdgeArrayHeight.append(i)
                 # if it is, add x,y coordinates to ObstacleArray
                 EdgeArray.append((j, i))
+                if val_ant != (0,0) and DEBUG == 1:
+                    cv2.line(img, val_ant, (j, i), (0, 0, 255), 5)
+                val_ant=(j,i)
                 break  # if white pixel is found, skip rest of pixels in column
         else:
             EdgeArrayHeight.append(0)  # no white pixel found
             # if nothing found, assume no obstacle. Set pixel position way off the screen to indicate
             EdgeArray.append((j, 0))
             # no obstacle detected
-
-    for x in range(len(EdgeArray)-1):  # draw lines between points in ObstacleArray
-        if(DEBUG == 1):
-            cv2.line(img, EdgeArray[x], EdgeArray[x+1], (0, 0, 255), 5)
-
     comienzoRecta = 1  # first point
     differenceDelta = 50  # the difference to detect to start and end a "curve or line"
     # draw lines from bottom of the screen to points in ObstacleArray
@@ -100,4 +98,11 @@ def Reconocimiento():
 
 
 while True:
-    Reconocimiento()
+    try:
+        Reconocimiento()
+    except:
+        capture = cv2.VideoCapture("./assets/stock.webm")
+        capture.set(3, 1280)  # 1024 640 1280 800 384
+        capture.set(4, 960)  # 600 480 960 600 288
+
+        Reconocimiento()
