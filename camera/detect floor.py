@@ -1,12 +1,13 @@
 import cv2
 import time
 
-DEBUG = 0
+DEBUG = 1
+exposicion_mode=0
 
-capture = cv2.VideoCapture("stock.webm")
+capture = cv2.VideoCapture("stock2.webm")
 
-capture.set(3, 640)  # 1024 640 1280 800 384
-capture.set(4, 480)  # 600 480 960 600 288
+capture.set(3, 1024)  # 1024 640 1280 800 384
+capture.set(4, 760)  # 600 480 960 600 288
 
 DisplayImage = True
 
@@ -81,14 +82,14 @@ def Reconocimiento():
                 pendiente = Pendiente(inPoint, EdgeArray[x-1])
                 cv2.putText(img, str(round(pendiente, 2)), inPoint,
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-                cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 2)
+                cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 5)
                 # we need to calculate the slope (pendiente) of the line
                 # we'll (y2-y1)/(x2-x1)
 
                 inPoint = EdgeArray[x]  # changes initial point
             # if it reached the end of the image it draws from last point to the end, since it didn't find anything else
             if(x == len(EdgeArrayHeight)-1):
-                cv2.line(img, inPoint, EdgeArray[x], (255, 0, 0), 2)
+                cv2.line(img, inPoint, EdgeArray[x], (255, 0, 0), 5)
 
                 pendiente = Pendiente(inPoint, EdgeArray[x-1])
                 cv2.putText(img, str(round(pendiente, 2)), inPoint,
@@ -99,9 +100,18 @@ def Reconocimiento():
                      EdgeArray[x], (0, 255, 0), 1)
 
     if DisplayImage is True:
+        cv2.namedWindow("camera", cv2.WINDOW_NORMAL)
         cv2.imshow("camera", img)
         cv2.waitKey(10)
 
 
 while True:
-    Reconocimiento()
+    if(exposicion_mode==1):
+        try:
+            Reconocimiento()
+        except:
+            capture = cv2.VideoCapture("stock2.webm")
+            capture.set(3, 1024)  # 1024 640 1280 800 384
+            capture.set(4, 768)  # 600 480 960 600 288
+    else:
+        Reconocimiento()
