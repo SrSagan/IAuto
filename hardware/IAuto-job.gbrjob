@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "5.1.10-88a1d61d58~90~ubuntu20.04.1"
     },
-    "CreationDate":  "2021-09-16T23:32:17-03:00"
+    "CreationDate":  "2021-10-22T14:45:26-03:00"
   },
   "GeneralSpecs":
   {
@@ -29,8 +29,8 @@
   [
     {
       "Layers": "Outer",
-      "PadToPad":  0.127,
-      "PadToTrack":  0.127,
+      "PadToPad":  0.203,
+      "PadToTrack":  0.203,
       "TrackToTrack":  0.203,
       "MinLineWidth":  0.305,
       "TrackToRegion":  0.381,
@@ -47,6 +47,16 @@
     {
       "Path":  "IAuto-B_Cu.gbr",
       "FileFunction":  "Copper,L2,Bot",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "IAuto-F_Paste.gbr",
+      "FileFunction":  "SolderPaste,Top",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "IAuto-B_Paste.gbr",
+      "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
@@ -82,6 +92,10 @@
       "Notes":  "Layer F.SilkS"
     },
     {
+      "Type":  "SolderPaste",
+      "Notes":  "Layer F.Paste"
+    },
+    {
       "Type":  "SolderMask",
       "Notes":  "Layer F.Mask"
     },
@@ -101,6 +115,10 @@
     {
       "Type":  "SolderMask",
       "Notes":  "Layer B.Mask"
+    },
+    {
+      "Type":  "SolderPaste",
+      "Notes":  "Layer B.Paste"
     },
     {
       "Type":  "Legend",
