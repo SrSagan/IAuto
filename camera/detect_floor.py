@@ -1,12 +1,13 @@
 import cv2
 import time
 
-DEBUG = 0
+DEBUG = 1
+exposicion_mode = 1
 
 capture = cv2.VideoCapture("./assets/stock.webm")
 
-capture.set(3, 640)  # 1024 640 1280 800 384
-capture.set(4, 480)  # 600 480 960 600 288
+capture.set(3, 1024)  # 1024 640 1280 800 384
+capture.set(4, 760)  # 600 480 960 600 288
 
 DisplayImage = True
 
@@ -17,7 +18,7 @@ def Pendiente(xy1, xy2):
     x2 = xy2[0]
     y2 = xy2[1]
 
-    out = ((y2-y1) - (x2-x1))
+    out = (((y2-y1)+1) / ((x2-x1)+1))*100
     return out
 
 
@@ -41,7 +42,7 @@ def Reconocimiento():
     imagewidth = imgEdge.shape[1] - 1
     imageheight = imgEdge.shape[0] - 1
     EdgeArrayHeight = []
-    val_ant=(0,0)
+    val_ant = (0, 0)
     for j in range(0, imagewidth, StepSize):  # for the width of image array
         # step through every pixel in height of array from bottom to top
         for i in range(imageheight-5, 0, -1):
@@ -51,9 +52,9 @@ def Reconocimiento():
                 EdgeArrayHeight.append(i)
                 # if it is, add x,y coordinates to ObstacleArray
                 EdgeArray.append((j, i))
-                if val_ant != (0,0) and DEBUG == 1:
+                if val_ant != (0, 0) and DEBUG == 1:
                     cv2.line(img, val_ant, (j, i), (0, 0, 255), 5)
-                val_ant=(j,i)
+                val_ant = (j, i)
                 break  # if white pixel is found, skip rest of pixels in column
         else:
             EdgeArrayHeight.append(0)  # no white pixel found
@@ -76,23 +77,28 @@ def Reconocimiento():
                           (EdgeArray[x-1][1] - EdgeArray[x][1]))
 
                 # draws a line between the "initial point/end of last line" to the point found
+                pendiente = Pendiente(inPoint, EdgeArray[x-1])
+                cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
                 cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 5)
                 # we need to calculate the slope (pendiente) of the line
                 # we'll (y2-y1)/(x2-x1)
-                pendiente = Pendiente(inPoint, EdgeArray[x-1])
-                cv2.putText(img, str(pendiente), inPoint,
-                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
                 inPoint = EdgeArray[x]  # changes initial point
             # if it reached the end of the image it draws from last point to the end, since it didn't find anything else
             if(x == len(EdgeArrayHeight)-1):
                 cv2.line(img, inPoint, EdgeArray[x], (255, 0, 0), 5)
 
+                pendiente = Pendiente(inPoint, EdgeArray[x-1])
+                cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
         if(DEBUG == 1):
             cv2.line(img, (x*StepSize, imageheight),
                      EdgeArray[x], (0, 255, 0), 1)
 
     if DisplayImage is True:
+        cv2.namedWindow("camera", cv2.WINDOW_NORMAL)
         cv2.imshow("camera", img)
         cv2.waitKey(10)
 
@@ -102,7 +108,6 @@ while True:
         Reconocimiento()
     except:
         capture = cv2.VideoCapture("./assets/stock.webm")
-        capture.set(3, 1280)  # 1024 640 1280 800 384
-        capture.set(4, 960)  # 600 480 960 600 288
-
+        capture.set(3, 1024)  # 1024 640 1280 800 384
+        capture.set(4, 768)  # 600 480 960 600 288
         Reconocimiento()
