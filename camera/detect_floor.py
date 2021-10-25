@@ -41,6 +41,8 @@ def Reconocimiento():
 
     imagewidth = imgEdge.shape[1] - 1
     imageheight = imgEdge.shape[0] - 1
+
+    centre=[img.shape[1]/2 ,img.shape[0]/2]
     EdgeArrayHeight = []
     val_ant = (0, 0)
     for j in range(0, imagewidth, StepSize):  # for the width of image array
@@ -64,6 +66,7 @@ def Reconocimiento():
     comienzoRecta = 1  # first point
     differenceDelta = 50  # the difference to detect to start and end a "curve or line"
     # draw lines from bottom of the screen to points in ObstacleArray
+    first=0
     for x in range(len(EdgeArray)):
         if(comienzoRecta == 1):  # first point is saved in inPoint
             inPoint = EdgeArray[x]
@@ -77,10 +80,16 @@ def Reconocimiento():
                           (EdgeArray[x-1][1] - EdgeArray[x][1]))
 
                 # draws a line between the "initial point/end of last line" to the point found
-                pendiente = Pendiente(inPoint, EdgeArray[x-1])
-                cv2.putText(img, str(round(pendiente, 2)), inPoint,
-                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-                cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 5)
+                if(EdgeArray[x-1][0] - inPoint[0] > 10):
+                    pendiente = Pendiente(inPoint, EdgeArray[x-1])
+                    cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                    cv2.line(img, inPoint, EdgeArray[x-1], (255, 0, 0), 5)
+
+                    if(first==0):
+                        izquierda=pendiente
+                        first=1
+
                 # we need to calculate the slope (pendiente) of the line
                 # we'll (y2-y1)/(x2-x1)
 
@@ -91,6 +100,12 @@ def Reconocimiento():
 
                 pendiente = Pendiente(inPoint, EdgeArray[x-1])
                 cv2.putText(img, str(round(pendiente, 2)), inPoint,
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                
+
+                print(pendiente+izquierda)
+
+                cv2.putText(img, str(round(pendiente+izquierda, 2)), (512, 384),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
         if(DEBUG == 1):
