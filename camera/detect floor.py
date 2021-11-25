@@ -1,5 +1,5 @@
 import cv2
-import time
+import urllib.request
 
 DEBUG = 0
 exposicion_mode=0
@@ -25,7 +25,7 @@ def Pendiente(xy1, xy2):
 def Reconocimiento():
     StepSize = 10
     EdgeArray = []
-    time.sleep(0.1)  # let image settle
+    #time.sleep(0.5)  # let image settle
 
     # get a bunch of frames to make sure current frame is the most recent
     ret, img = capture.read()
@@ -66,7 +66,7 @@ def Reconocimiento():
             cv2.line(img, EdgeArray[x], EdgeArray[x+1], (0, 0, 255), 5)
 
     comienzoRecta = 1  # first point
-    differenceDelta = 50  # the difference to detect to start and end a "curve or line"
+    differenceDelta = 20  # the difference to detect to start and end a "curve or line"
     # draw lines from bottom of the screen to points in ObstacleArray
     first=0
     for x in range(len(EdgeArray)):
@@ -104,8 +104,13 @@ def Reconocimiento():
                 cv2.putText(img, str(round(pendiente, 2)), inPoint,
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
                 
-
-                print(pendiente+izquierda)
+                
+                magicNumber=round(pendiente+izquierda)
+                if(magicNumber >= 180): magicNumber=180
+                if(magicNumber <= -180): magicNumber=-180
+                #DESCONEMNTAR ESTA LINEA PARA MANDAR AL ESP32
+                #r = urllib.request.urlopen('http://192.168.4.1/'+str(magicNumber))
+                print(magicNumber)
 
                 cv2.putText(img, str(round(pendiente+izquierda, 2)), (512, 384),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)

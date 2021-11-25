@@ -6,20 +6,20 @@ s = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, bytesize=8)
 def on_key_press(key):
     print(str(key))
     if key.char == ('w'):
-        input_value = "90!90"
+        input_value = "w"
     elif key.char == ('s'):
-        input_value = "-90!-90"
+        input_value = "s"
     elif key.char == ('a'):
-        input_value = "-90!90"
+        input_value = "a"
     elif key.char == ('d'):
-        input_value = "90!-90"
+        input_value = "d"
     print(input_value)
     s.write(input_value.encode())
     return False
 
 def on_key_release(key):
     print("\nreleased key %s" % key)
-    input_value = "0!0"
+    input_value = "f"
     s.write(input_value.encode())
     return False
 
