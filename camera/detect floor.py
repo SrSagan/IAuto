@@ -109,7 +109,7 @@ def Reconocimiento():
                 if(magicNumber >= 180): magicNumber=180
                 if(magicNumber <= -180): magicNumber=-180
                 #DESCONEMNTAR ESTA LINEA PARA MANDAR AL ESP32
-                #r = urllib.request.urlopen('http://192.168.4.1/'+str(magicNumber))
+                r = urllib.request.urlopen('http://192.168.4.1/'+str(magicNumber)+"!")
                 print(magicNumber)
 
                 cv2.putText(img, str(round(pendiente+izquierda, 2)), (512, 384),
