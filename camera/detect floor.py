@@ -1,7 +1,7 @@
 import cv2
 import urllib.request
 
-DEBUG = 0
+DEBUG = 1
 exposicion_mode=0
 
 capture = cv2.VideoCapture("stock.webm")
@@ -18,8 +18,7 @@ def Pendiente(xy1, xy2):
     x2 = xy2[0]
     y2 = xy2[1]
 
-    out = (((y2-y1)+1) / ((x2-x1)+1))*100
-    return out
+    return (((y2-y1)+1) / ((x2-x1)+1))*100
 
 
 def Reconocimiento():
@@ -109,8 +108,8 @@ def Reconocimiento():
                 if(magicNumber >= 180): magicNumber=180
                 if(magicNumber <= -180): magicNumber=-180
                 #DESCONEMNTAR ESTA LINEA PARA MANDAR AL ESP32
-                r = urllib.request.urlopen('http://192.168.4.1/'+str(magicNumber)+"!")
-                print(magicNumber)
+                #r = urllib.request.urlopen('http://192.168.4.1/'+str(magicNumber)+"!")
+                #print(magicNumber)
 
                 cv2.putText(img, str(round(pendiente+izquierda, 2)), (512, 384),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
